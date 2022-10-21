@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zxx" class="uk-background-white">
+    
+    <!--
+        ██╗███╗   ██╗███████╗ ██████╗ ████████╗██████╗  ██████╗ ██████╗ ██╗ ██████╗
+        ██║████╗  ██║██╔════╝██╔═══██╗╚══██╔══╝██╔══██╗██╔═══██╗██╔══██╗██║██╔════╝
+        ██║██╔██╗ ██║█████╗  ██║   ██║   ██║   ██████╔╝██║   ██║██████╔╝██║██║     
+        ██║██║╚██╗██║██╔══╝  ██║   ██║   ██║   ██╔══██╗██║   ██║██╔═══╝ ██║██║     
+        ██║██║ ╚████║██║     ╚██████╔╝   ██║   ██║  ██║╚██████╔╝██║     ██║╚██████╗
+        ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝ ╚═════╝
+     -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Doers NFT</title>
+        <link rel="icon" href="favicon.svg" type="image/svg+xml">
+        <meta name="description" content="REFLECT Festival Doers NFT 1.0">
+        <meta name="theme-color" content="#373ad3">
+
+        <!-- preload head styles -->
+        <link rel="preload" href="assets/fonts/brand-icons/brand-icons.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/unicons/Unicons.woff" as="font" type="font/woff" crossorigin>
+        <link rel="preload" href="assets/css/swiper-bundle.min.css" as="style">
+        <link rel="preload" href="assets/css/uikit.min.css" as="style">
+        <link rel="preload" href="assets/css/theme/main.min.css" as="style">
+
+        <!-- preload footer scripts -->
+        <link rel="preload" href="assets/js/uikit.min.js" as="script">
+        <link rel="preload" href="assets/js/uikit-components.js" as="script">
+        <link rel="preload" href="assets/js/jquery.min.js" as="script">
+        <link rel="preload" href="assets/js/swiper-bundle.min.js" as="script">
+        <link rel="preload" href="assets/js/feather.min.js" as="script">
+        <link rel="preload" href="assets/js/typed.min.js" as="script">
+        <link rel="preload" href="assets/js/anime.min.js" as="script">
+        <link rel="preload" href="assets/js/app.js" as="script">
+        <link rel="preload" href="assets/js/swiper-helper.js" as="script">
+        <link rel="preload" href="assets/js/typed-helper.js" as="script">
+        <link rel="preload" href="assets/js/anime-helper.js" as="script">
+        <link rel="preload" href="assets/js/anime-helper-defined-timelines.js" as="script">
+        <link rel="preload" href="assets/js/web3.min.js" as="script">
+        <link rel="preload" href="assets/js/walletconnect-web3-provider.min.js" as="script">
+        <link rel="preload" src="assets/js/DoersNFT_ABI.js"></script>
+
+        <!-- include styles -->
+        <script src="assets/js/app-head.js"></script>
+        <link rel="stylesheet" href="assets/css/theme/main.min.css">
+
+        <!-- include scripts -->
+        <script src="assets/js/uikit.min.js"></script>
+        <script src="assets/js/uikit-components.js"></script>
+    </head>
+    <body class="uni-body">
+
+        <!-- Menu modal -->
+        <div id="uni_mobile_menu" class="uni-mobile-menu uk-offcanvas" data-uk-offcanvas="mode: push; overlay: true; flip: true; selPanel: .uk-offcanvas-bar-panel;">
+            <div class="uk-offcanvas-bar-panel uk-panel dark:uk-background-gray-100">
+                <div class="uni-mobile-menu-wrap uk-flex-column uk-flex-between" data-uk-height-viewport="offset-bottom: true;">
+                    <div class="uni-mobile-menu-content">
+                        <header class="uk-card uk-card-2xsmall uk-flex-middle uk-flex-between">
+                            <div class="uk-flex-1">
+                                <button aria-label="Close Menu" class="uk-offcanvas-close uk-button uk-button-small uk-button-icon uk-button-default uk-button-outline uk-radius-circle" type="button">
+                                    <i class="uk-icon-small" data-feather="arrow-left"></i>
+                                </button>
+                            </div>
+                            <div>
+                                <h5 class="uk-h5 uk-margin-remove">Navigation</h5>
+                            </div>
+                            <div class="uk-flex-1"></div>
+                        </header>
+                        <hr class="uk-margin-remove">
+                        <div class="uk-card uk-card-small">
+                            <div class="uk-panel">
+                                <ul class="uk-nav uk-nav-default">
+                                    <li><a href="#uni_about">About</a></li>
+                                    <li><a href="#uni_faq">FAQ</a></li>
+                                    <li class="uk-nav-header">Social Media</li>
+                                    <li><a href="https://twitter.com/FestivalReflect" target="_blank"><i class="uk-icon unicon-logo-twitter"></i>  Twitter</a></li>
+                                    <li><a href="https://www.instagram.com/REFLECTfestival" target="_blank"><i class="uk-icon unicon-logo-instagram"></i> Instagram</a></li>
+                                    <li><a href="https://www.facebook.com/REFLECTfestival/" target="_blank"><i class="uk-icon unicon-logo-facebook"></i> Facebook</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UCufVOESQvvSnhOu-5g03CCg/f" target="_blank"><i class="uk-icon unicon-logo-youtube"></i> YouTube</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Connect wallet modal -->
+        <div id="uni_connect_wallet" class="uk-modal-full" data-uk-modal>
+            <div class="uk-modal-dialog">
+                <div class="uk-position-top uk-position-z-index-negative" data-uk-height-viewport="">
+                    <div class="uk-position-cover uk-background-cover uk-opacity-10 dark:uk-hidden" data-src="assets/images/gradient-01.png" data-uk-img></div>
+                    <div class="uk-position-cover uk-background-cover uk-opacity-20 uk-hidden dark:uk-visible" data-src="assets/images/gradient-01.png" data-uk-img></div>
+                </div>
+                <button class="uk-modal-close-full uk-close-large uk-position-small" type="button" data-uk-close></button>
+                <div class="uk-container">
+                    <div class="uk-grid uk-flex-center uk-flex-middle uk-child-width-1-2@m uk-section" data-uk-grid data-uk-height-viewport>
+                        <div>
+                            <div class="uk-panel uk-text-center">
+                                <h2 class="uk-h5 uk-h3@s uk-h2@l uk-margin-remove">Connect your wallet</h2>
+                                <div class="uk-grid uk-grid-xsmall uk-grid-small@m uk-child-width-1-2@m uk-margin-medium-top uk-margin-large-top@m" data-uk-grid="">
+                                    <div>
+                                        <div class="uk-panel uk-card uk-card-small uk-card-medium@m uk-card-border uk-radius-medium uk-radius-large@m uk-box-shadow-hover-small hover:uk-border-primary">
+                                            <a href="#metamask" class="uk-position-cover"></a>
+                                            <img src="assets/images/icon-metamask.png" alt="metamask">
+                                            <h4 class="uk-text-bold uk-h5@m uk-margin-small-top uk-margin-medium-top@m">Metamask</h4>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="uk-panel uk-card uk-card-small uk-card-medium@m uk-card-border uk-radius-medium uk-radius-large@m uk-box-shadow-hover-small hover:uk-border-primary">
+                                            <a href="#bitgo" class="uk-position-cover"></a>
+                                            <img src="assets/images/icon-bitgo.png" alt="bitgo">
+                                            <h4 class="uk-text-bold uk-h5@m uk-margin-small-top uk-margin-medium-top@m">BitGo</h4>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="uk-panel uk-card uk-card-small uk-card-medium@m uk-card-border uk-radius-medium uk-radius-large@m uk-box-shadow-hover-small hover:uk-border-primary">
+                                            <a href="#trustwallet" class="uk-position-cover"></a>
+                                            <img src="assets/images/icon-trustwallet.png" alt="trustwallet">
+                                            <h4 class="uk-text-bold uk-h5@m uk-margin-small-top uk-margin-medium-top@m">Trust Wallet</h4>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="uk-panel uk-card uk-card-small uk-card-medium@m uk-card-border uk-radius-medium uk-radius-large@m uk-box-shadow-hover-small hover:uk-border-primary">
+                                            <a href="#coinbase" class="uk-position-cover"></a>
+                                            <img src="assets/images/icon-coinbase.png" alt="coinbase">
+                                            <h4 class="uk-text-bold uk-h5@m uk-margin-small-top uk-margin-medium-top@m">Coinbase</h4>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="uni_after_mint" class="uk-modal-full" data-uk-modal>
+            <div class="uk-modal-dialog">
+                <form class="modal-form uk-panel uk-card uk-card-small uk-card-medium@m uk-card-border uk-radius-medium uk-radius-large@m uk-box-shadow-hover-small hover:uk-border-primary" action="https://formsubmit.co/fb3a3400124dbedf727b6dcc395462d8" method="POST" bis_skin_checked="1">                                            <h4 class="uk-text-bold uk-h5@m uk-margin-small-top uk-margin-medium-top@m">Give us your email</h4>
+                    <input type="email" name="email" placeholder="Your email address" required>
+                </form>
+            </div>
+        </div>
+
+        <!-- Wrapper start -->
+        <div class="wrap">
+
+            <!-- Header start -->
+            <header class="uni-header uk-position-top">
+                <div class="uni-header-navbar" data-uk-sticky="top: 70; show-on-up: false; animation: uk-animation-slide-top" data-anime="opacity:[0, 1]; translateY:[-24, 0]; onview: true; delay: 0;">
+                    <div class="uk-container">
+                        <nav class="uk-navbar uk-navbar-container uk-navbar-transparent" data-uk-navbar>
+                            <div class="uk-navbar-top">
+                                <div class="uk-navbar-left">
+                                    <a class="uk-logo uk-navbar-item uk-h4 uk-h3@m uk-margin-remove" href="index.html"> <img class="uk-visible " width="720" src="assets/images/REFLECT_logo.svg" alt="Nerko" loading="lazy"> <img class="uk-hidden dark:uk-visible" width="120" src="assets/images/nerko-dark.svg" alt="Nerko" loading="lazy"> </a>
+                                </div>
+
+                                <div class="uk-navbar-right uk-flex-1 uk-flex-right">
+                                    <ul class="uk-navbar-nav dark:uk-text-gray-10 uk-visible@m" data-uk-scrollspy-nav="closest: li; scroll: true; offset: 80" data-uk-navbar-bound>
+                                        <li><a href="#uni_about">About</a></li>
+                                        <li><a href="#uni_faq">FAQ</a></li>
+                                    </ul>
+                                    <div class="uk-navbar-item">
+                                        <ul class="uk-subnav uk-subnav-small uk-visible@m">
+                                            <li>
+                                                <a href="https://twitter.com/FestivalReflect" target="_blank"><i class="uk-icon unicon-logo-twitter"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.instagram.com/REFLECTfestival" target="_blank"><i class="uk-icon unicon-logo-instagram"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.facebook.com/REFLECTfestival/" target="_blank"><i class="uk-icon unicon-logo-facebook"></i></a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/channel/UCufVOESQvvSnhOu-5g03CCg/f" target="_blank"><i class="uk-icon unicon-logo-youtube"></i></a>
+                                            </li>
+                                        </ul>
+
+                                        <!-- header: call to actions -->
+                                        <!-- <a id="mintBtn" class="uk-button uk-button-medium@m uk-button-default uk-button-outline uk-margin-left uk-visible@m" data-uk-toggle="">
+                                            <span>Mint NFT</span>
+                                        </a> -->
+                                    </div>
+
+                                    <div class="uk-navbar-item uk-hidden@m">
+                                        <!-- <a href="#uni_connect_wallet" class="uk-button uk-button-medium@m uk-button-icon uk-hidden@m uk-margin-small-right" data-uk-toggle="">
+                                            <i class="uk-icon unicon-wallet"></i>
+                                        </a> -->
+                                        <a href="#uni_mobile_menu" data-uk-toggle>
+                                            <span class="uk-icon uk-icon-medium material-icons">menu</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Header end -->
+
+            <!-- Hero start -->
+            <div id="uni_hero" class="uni-hero uk-section uk-section-xlarge uk-padding-remove-bottom uk-panel">
+                <div class="uk-position-top uk-position-z-index-negative uk-overflow-hidden uk-blend-overlay" data-uk-height-viewport="">
+                    <img class="uk-position-top-left uk-position-fixed uk-blur-large" style="left: -4%; top: -4%" width="500" src="assets/images/gradient-circle.svg" alt="Circle">
+                    <img class="uk-position-bottom-right uk-position-fixed uk-blur-large" style="right: -4%; bottom: -4%" width="500" src="assets/images/gradient-circle.svg" alt="Circle">
+                </div>
+                <div class="uk-position-top uk-position-z-index-negative" data-uk-height-viewport="">
+                    <div class="uk-position-cover uk-background-cover uk-opacity-10 dark:uk-hidden" data-src="assets/images/gradient-01.png" data-uk-img></div>
+                    <div class="uk-position-cover uk-background-cover uk-opacity-20 uk-hidden dark:uk-visible" data-src="assets/images/gradient-01.png" data-uk-img></div>
+                </div>
+                <div class="uk-panel uk-position-z-index">
+                    <div class="uk-container">
+                        <div class="uk-panel">
+                            <div class="uk-grid uk-grid-2xlarge uk-flex-middle uk-flex-between" data-uk-grid data-uk-height-viewport="offset-top: true; offset-bottom: 20;">
+                                <div class="uk-width-5-12@m">
+                                    <div class="uk-panel uk-position-z-index uk-text-center uk-text-left@m" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+                                        <img class="uk-position-top-left" width="44" src="assets/images/objects/ethereum-01.png" alt="object" style="top: -20%; left: 50%" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 400;">
+                                        <img class="uk-position-left" width="16" src="assets/images/objects/circle-01.png" alt="object" style="top: 16%; left: -16%" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 420;">
+                                        <img class="uk-position-bottom-left" width="24" src="assets/images/objects/circle-03.png" alt="object" style="bottom: -16%; left: 16%" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 440;">
+                                        <h2 class="uk-h2 uk-heading-d3@m uk-margin-small uk-margin@m">Your digital pass to the Reflect Community</h2>
+                                        <p class="uk-text-xlarge uk-width-xlarge@m uk-text-muted">Become one of the 10 Doers and get VIP access to Reflect festival and exclusive events for three years.</p>
+                                        <a id="mintBtn" class="uk-button uk-button-medium@m uk-button-gradient uk-margin-small-top">
+                                            <span>Mint NFT</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-6-12@m uk-flex-center">
+                                    <div class="uk-panel" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 200;">
+                                        <img class="uk-position-left uk-text-primary" width="44" src="assets/images/objects/bitcoin-01.png" alt="object" style="top: 75%; left: -20%" data-uk-svg="" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 460;">
+                                        <img class="uk-position-right" width="28" src="assets/images/objects/x.png" alt="object" style="top: -4%; right: 16%" data-uk-svg="" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 480;">
+                                        <img class="uk-position-right uk-opacity-10" width="300" src="assets/images/blob-dashed.svg" alt="Blog dashed" style="top: -10%; right: 16%; fill: transparent" data-uk-svg="">
+                                        <img class="reflect-logo" src="assets/images/REFLECT_Doers_NFT_10.gif"/>
+                                        
+                                        <a class="uni-circle-text uk-background-white dark:uk-background-gray-80 uk-box-shadow-large uk-visible@m" href="https://etherscan.io/token/0x18a6c0a93aab6b1a312ae8d364c20c3aef1de318" target="_blank">
+                                            <svg class="uni-circle-text-path uk-text-secondary uni-animation-spin" viewBox="0 0 100 100" width="120" height="120">
+                                                <defs>
+                                                    <path id="circle" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0">
+                                                </defs>
+                                                <text font-size="11.75">
+                                                    <textPath xlink:href="#circle">view etherscan • view etherscan •</textPath>
+                                                </text>
+                                            </svg>
+                                            <i class="uk-position-center uk-text-secondary uk-icon-medium@m unicon-arrow-up-right uk-text-bold"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero end -->
+
+            <img class="uk-width-2xsmall uk-flex-center uk-margin-auto uk-margin-medium uk-margin-large@m" src="assets/images/divider-01.svg" alt="Divider" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: true; delay: 100;">
+
+            <!-- numbers start -->
+            <div id="uni_numbers" class="uni-numbers uk-section uk-section-large@m">
+                <div class="uk-container">
+                    <div class="uk-panel">
+                        <img class="uk-position-bottom-left uk-text-secondary uni-animation-delay-large" width="32" src="assets/images/objects/bitcoin-01.png" alt="Object" style="bottom: -32%; left: 30%" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: -250; delay: 200;">
+                        <img class="uk-position-top-right" width="24" src="assets/images/objects/ethereum-01.png" alt="Object" style="top: -25%; right: 25%" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: -250; delay: 200;">
+                        <div class="uk-grid uk-grid-large uk-grid-2xlarge@m uk-child-width-expand@m uk-text-center uk-text-muted" data-uk-grid="" data-anime="targets: > *; opacity:[0, 1]; scale:[0.5, 1]; onview: -250; delay: anime.stagger(100);">
+                            <div>
+                                <div class="uk-panel">
+                                    <h4 class="uk-h3 uk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">5,000+</h4>
+                                    <span>Reflect annual attendees</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <h4 class="uk-h3 uk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">10</h4>
+                                    <span>Unique Doers NFT tokens</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel">
+                                    <h4 class="uk-h3 uk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">3</h4>
+                                    <span>Years of exclusive benefits for the NFT holders</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- numbers end -->
+
+            <img class="uk-width-2xsmall uk-flex-center uk-margin-auto uk-margin-medium uk-margin-large@m" src="assets/images/divider-01.svg" alt="Divider" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 400;">
+
+            <!-- about start -->
+            <div id="uni_about" class="uni-about uk-section uk-section-xlarge@m uk-panel">
+                <div class="uk-container">
+                    <header class="uk-grid-xsmall uk-flex-center uk-flex-middle uk-grid" data-uk-grid data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+                        <div class="uk-panel uk-text-center">
+                            <h2 class="uk-h3 uk-h1@m">Doers, unite!</h2>
+                        </div>
+                    </header>
+                    <div class="uk-panel uk-margin-medium-top uk-margin-2xlarge-top@m">
+                        <div class="uk-grid uk-grid-2xlarge uk-grid-3xlarge@m uk-child-width-1-1" data-uk-grid="">
+                            <div>
+                                <div class="uk-panel">
+                                    <div class="uk-grid uk-grid-3xlarge@m uk-flex-middle uk-child-width-1-2@m" data-uk-grid="">
+                                        <div>
+                                            <div class="uk-panel uk-image-middle uk-overflow-hidden uk-radius uk-radius-large@m" data-anime="opacity:[0, 1]; translateX:[-24, 0]; onview: -250; delay: 200;">
+                                                <img src="assets/images/features-02.png" alt="Create your own NFT">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="uk-panel" data-anime="opacity:[0, 1]; translateX:[24, 0]; onview: -250; delay: 300;">
+                                                <h3 class="uk-h3 uk-h1@m">What's included?</h3>
+                                                <p class="uk-text-large@m">
+                                                    The Doers NFT is a first of its kind opportunity to get VIP access to the Reflect festival and other exclusive events over the next three years.
+                                                    and their minting price is 1 ETH.
+                                                </p>
+                                                <p class="uk-text-large@m">
+                                                    Experience an extraordinary line-up of content including iconic keynote speeches, innovative and educational talks, panels and Q&A sessions, and many collaborative experiences.
+                                                    Unlock your full access and unique on-site experiences using the new technology to connect & discover.
+                                                </p>
+                                                <div class="uk-grid uk-grid-large@m uk-grid-match uk-child-width-1-2 uk-margin-large-top@m" data-uk-grid="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="uk-container">
+                <div class="uk-panel">
+                    <img class="uk-position-bottom-left uk-text-secondary uni-animation-delay-large" src="assets/images/objects/circle-01.png" alt="Object" style="bottom: -32%; left: 30%; opacity: 1; transform: scale(1);" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: -250; delay: 200;" width="32">
+                    <img class="uk-position-top-right" src="assets/images/objects/ethereum-01.png" alt="Object" style="top: -25%; right: 25%; opacity: 1; transform: scale(1);" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: -250; delay: 200;" width="24">
+                    <div class="uk-grid uk-grid-large uk-grid-2xlarge@m uk-child-width-expand@m uk-text-center uk-text-muted" data-uk-grid="" data-anime="targets: > *; opacity:[0, 1]; scale:[0.5, 1]; onview: -250; delay: anime.stagger(100);" bis_skin_checked="1">
+                        <div class="uk-first-column" style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Exclusive events for NFT holders</h4>
+                            </div>
+                        </div>
+                        <div style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Access to Speaker Lounge</h4>
+                            </div>
+                        </div>
+                        <div style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Early Access & Prime Sitting</h4>
+                            </div>
+                            <img class="uk-position-bottom-left uk-text-secondary uni-animation-delay-large" width="32" src="assets/images/objects/x.png" alt="Object" style="bottom: -32%; left: 30%; opacity: 1; transform: scale(1);" data-anime="opacity:[0, 1]; scale:[0, 1]; onview: -250; delay: 200;">
+                        </div>
+                    </div>
+                    <div class="uk-grid uk-grid-large uk-grid-2xlarge@m uk-child-width-expand@m uk-text-center uk-text-muted" data-uk-grid="" data-anime="targets: > *; opacity:[0, 1]; scale:[0.5, 1]; onview: -250; delay: anime.stagger(100);" bis_skin_checked="1">
+                        <div class="uk-first-column" style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Access to VIP Networking areas & events</h4>
+                            </div>
+                        </div>
+                        <div style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Discount Vouchers at selected<br> F&B venues<br></h4>                                    </div>
+                        </div>
+                        <div style="opacity: 1; transform: scale(1);" bis_skin_checked="1">
+                            <div class="uk-panel" bis_skin_checked="1">
+                                <h4 class="uk-h4 uk-attributes tuk-heading-d3@m uk-text-gradient uk-margin-xsmall uk-margin@m">Full Access to all stages & exhibition areas</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- about end -->
+            <img class="uk-width-2xsmall uk-flex-center uk-margin-auto uk-margin-medium uk-margin-large@m" src="assets/images/divider-01.svg" alt="Divider" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+
+            <!-- how to mint start -->
+            <div id="uni_minting" class="uni-minting uk-section uk-section-xlarge@m uk-panel">
+                <div class="uk-container uk-container-small">
+                    <header class="uk-grid-xsmall uk-flex-center uk-flex-middle uk-grid" data-uk-grid data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 200;">
+                        <div class="uk-panel uk-text-center">
+                            <h2 class="uk-h3 uk-h1@m">How to mint</h2>
+                        </div>
+                    </header>
+                    <div class="uk-panel uk-margin-medium-top uk-margin-2xlarge-top@m" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 300;">
+                        <img class="uk-position-top-left uk-text-secondary" width="16" src="assets/images/objects/circle-01.png" alt="Object" style="top: -16%; left: 8%">
+                        <img class="uk-position-bottom-left uk-text-muted" width="28" src="assets/images/objects/x.png" alt="Object" style="bottom: 16%; left: -8%">
+                        <div class="uk-grid uk-child-width-1-2@s uk-grid-match" data-uk-grid="" data-anime="targets: > *; opacity:[0, 1]; translateY:[24, 0]; onview: -250; delay: anime.stagger(100);">
+                            <div>
+                                <div class="uk-panel uk-card uk-card-small uk-padding-large-horizontal uk-radius-medium uk-radius-large@m uk-box-shadow-xsmall dark:uk-background-white-5">
+                                    <div class="uk-grid uk-grid-medium@m" data-uk-grid="">
+                                        <div class="uk-width-1-3 uk-width-1-4@m">
+                                            <img src="assets/images/icon-01.png" alt="Icon">
+                                        </div>
+                                        <div class="uk-panel uk-width-expand">
+                                            <h3 class="uk-h5 uk-h4@m">Connect your wallet</h3>
+                                            <p>Use a Web3 wallet such as Metamask to connect to the app.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel uk-card uk-card-small uk-padding-large-horizontal uk-radius-medium uk-radius-large@m uk-box-shadow-xsmall dark:uk-background-white-5">
+                                    <div class="uk-grid uk-grid-medium@m" data-uk-grid="">
+                                        <div class="uk-width-1-3 uk-width-1-4@m">
+                                            <img src="assets/images/icon-02.png" alt="Icon">
+                                            <div hidden class="uk-card uk-card-xsmall uk-radius-medium uk-background-gradient uk-flex-middle uk-flex-center uk-margin-medium-bottom@m">
+                                                <i class="uk-icon-medium uk-icon-medium@m unicon-select-window"></i>
+                                            </div>
+                                        </div>
+                                        <div class="uk-panel uk-width-expand">
+                                            <h3 class="uk-h5 uk-h4@m">Fund your account</h3>
+                                            <p>Minting a Doers NFT costs 1 ETH, plus a small transaction fee.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel uk-card uk-card-small uk-padding-large-horizontal uk-radius-medium uk-radius-large@m uk-box-shadow-xsmall dark:uk-background-white-5">
+                                    <div class="uk-grid uk-grid-medium@m" data-uk-grid="">
+                                        <div class="uk-width-1-3 uk-width-1-4@m">
+                                            <img src="assets/images/icon-03.png" alt="Icon">
+                                            <div hidden class="uk-card uk-card-xsmall uk-radius-medium uk-background-gradient uk-flex-middle uk-flex-center uk-margin-medium-bottom@m">
+                                                <i class="uk-icon-medium uk-icon-medium@m unicon-select-window"></i>
+                                            </div>
+                                        </div>
+                                        <div class="uk-panel uk-width-expand">
+                                            <h3 class="uk-h5 uk-h4@m">Confirm transaction</h3>
+                                            <p>Follow the instructions in your Web3 wallet to send the transaction.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="uk-panel uk-card uk-card-small uk-padding-large-horizontal uk-radius-medium uk-radius-large@m uk-box-shadow-xsmall dark:uk-background-white-5">
+                                    <div class="uk-grid uk-grid-medium@m" data-uk-grid="">
+                                        <div class="uk-width-1-3 uk-width-1-4@m">
+                                            <img src="assets/images/icon-04.png" alt="Icon">
+                                            <div hidden class="uk-card uk-card-xsmall uk-radius-medium uk-background-gradient uk-flex-middle uk-flex-center uk-margin-medium-bottom@m">
+                                                <i class="uk-icon-medium uk-icon-medium@m unicon-select-window"></i>
+                                            </div>
+                                        </div>
+                                        <div class="uk-panel uk-width-expand">
+                                            <h3 class="uk-h5 uk-h4@m">Receive your Doers NFT</h3>
+                                            <p>Welcome to the Doers NFT Community!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- how to mint end -->
+
+            <img class="uk-width-2xsmall uk-flex-center uk-margin-auto uk-margin-medium uk-margin-large@m" src="assets/images/divider-01.svg" alt="Divider" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+
+            <!-- faq start -->
+            <div id="uni_faq" class="uni-faq uk-section uk-section-large@m uk-panel uk-overflow-hidden uk-padding-2xlarge-bottom@m">
+                <div class="uk-container">
+                    <header class="uk-grid-xsmall uk-flex-center uk-flex-middle uk-text-center uk-child-width-auto@m uk-grid" data-uk-grid data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+                        <div class="uk-panel">
+                            <h2 class="uk-h3 uk-h1@m">FAQ</h2>
+                        </div>
+                    </header>
+                    <div class="uk-panel uk-margin-medium-top uk-margin-2xlarge-top@m">
+                        <ul class="uk-card uk-card-small uk-card-large@m uk-radius uk-radius-large@m uk-width-2xlarge@m uk-margin-auto uk-box-shadow-xsmall dark:uk-background-white-5" data-uk-accordion="collapsible: false" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+                            <li>
+                                <a class="uk-accordion-title uk-h5@m" href="#">About Reflect festival</a>
+                                <div class="uk-accordion-content uk-padding-small-bottom">
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">Reflect is the biggest tech & entrepreneurial festival in Cyprus where the region's doers network, brainstorm and learn from their peers. Conveniently located at the crossroads of the EU, Africa, and the Middle East, it invites the attendees to the bustling seaside city of Limassol every year. The festival earned a reputation as an inventive, fun melting pot of entrepreneurs, investors, and thinkers. Throughout these few days, countless new ideas, projects, and partnerships are born.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="uk-accordion-title uk-h5@m" href="#">What is the Doers NFT?</a>
+                                <div class="uk-accordion-content uk-padding-small-bottom">
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">The Doers NFTs represent your 3 years access to Reflect Festival. There is total of 10 Doers 1.0 NFTs.</p>
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">NFT stands for non-fungible token. It is a one-of-a-kind digital token that you can buy or sell. These tokens can represent just about anything, and they use blockchain technology to prove ownership. Sometimes they are associated with a digital image, GIF, or song. Sometimes they can be redeemed for a physical object. Sometimes the owner is entitled to an experience, like a movie or a phone call or access to an event.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="uk-accordion-title uk-h5@m" href="#">How can I get a Doers NFT?</a>
+                                <div class="uk-accordion-content uk-padding-small-bottom">
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">To buy the Doers 1.0 NFT you will need to connect a Web3 wallet such as Metamask to the website and click on the Mint button. Once minted, your NFT will appear in your wallet.</p>
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">When you mint an NFT, you begin its existence on the blockchain and become its first owner. Similar to how coins are minted and added into circulation, minting an NFT certifies the token as unique and adds it to the blockchain for the first time.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="uk-accordion-title uk-h5@m" href="#">What do I receive with a Doers 1.0 NFT?</a>
+                                <div class="uk-accordion-content uk-padding-small-bottom">
+                                    <p class="uk-text-small uk-text-large@m uk-text-muted">Ownership of a Doers NFT grants you VIP access to Reflect festival and the experiences associated with that NFT for 3 years in a row. Each NFT can be bought, sold, or traded. To ensure we can fulfil your Reflect festival passes and experiences, NFT owners will need to verify their ownership on the redemption page made available each year.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- faq end -->
+
+
+            <img class="uk-width-2xsmall uk-flex-center uk-margin-auto uk-margin-medium uk-margin-large@m" src="assets/images/divider-01.svg" alt="Divider" data-anime="opacity:[0, 1]; translateY:[24, 0]; onview: true; delay: 100;">
+        </div>
+
+        <!-- Wrapper end -->
+
+        <!-- Footer start -->
+        <footer class="uni-footer uk-section uk-section-xlarge@m">
+            <div class="uk-container">
+                <div class="uk-panel">
+                    <img class="uk-position-top-left" width="32" src="assets/images/objects/ethereum-01.png" alt="object" style="top: 32%; left: 16%">
+                    <img class="uk-position-top-right" width="16" src="assets/images/objects/x.png" alt="object" style="top: 8%; right: 16%">
+                    <img class="uk-position-bottom-right" width="16" src="assets/images/objects/circle-01.png" alt="object" style="bottom: 24%; right: 40%">
+                    <img class="uk-position-bottom-left" width="24" src="assets/images/objects/circle-03.png" alt="object" style="bottom: -8%; left: 30%">
+                    <div class="uk-grid uk-flex-center uk-text-center" data-uk-grid>
+                        <div class="uk-width-xxlarge@m">
+                            <div class="uk-panel">
+                                <div class="uk-logo">
+                                    <img width="100%" src="assets/images/REFLECT_Doers_NFT_10.gif" alt="REFLECT Doers NFT 1.0">
+                                </div>
+                                <p class="uk-text-xlarge@m">The biggest tech & entrepreneurial community in Cyprus.<br>Celebrate the innovation that shapes our lives at Reflect.</p>
+                                <!-- <ul class="uk-subnav uk-subnav-small uk-flex-center uk-text-gray-40 uk-margin-top uk-margin-medium-top@m">
+                                    <li>
+                                        <a href="https://twitter.com/unistudioco"><span class="uk-icon uk-icon-medium@m unicon-logo-twitter"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://discord.com/unistudioco"><span class="uk-icon uk-icon-medium@m unicon-logo-discord"></span></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://instagram.com/unistudioco"><span class="uk-icon uk-icon-medium@m unicon-logo-instagram"></span></a>
+                                    </li>
+                                </ul> -->
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="uk-margin-medium uk-margin-3xlarge-top@m">
+                    <div class="uk-panel uk-text-small">
+                        <div class="uk-grid uk-child-width-auto@m uk-flex-center uk-flex-between@m uk-text-center uk-text-left@m" data-uk-grid>
+                            <div>
+                                <ul class="uk-subnav uk-subnav-small uk-text-muted uk-flex-center">
+                                    <li><a href="https://reflectfest.com" target="_blank">Reflect Festival</a></li>
+                                    <li class="uk-margin-small-left">
+                                        <a href="#" data-uk-totop="" data-uk-scroll><i class="uk-icon uk-icon-small unicon-chevron-up"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="uk-flex-first@m uk-flex-center">
+                                <p class="uk-text-muted">Forged with 🔥 by <a href="https://infotropic.tech" target="_blank">infotropic.tech</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Footer end -->
+
+        <!-- include scripts -->
+        <script defer src="assets/js/jquery.min.js"></script>
+        <script defer src="assets/js/swiper-bundle.min.js"></script>
+        <script defer src="assets/js/feather.min.js"></script>
+        <script defer src="assets/js/typed.min.js"></script>
+        <script defer src="assets/js/anime.min.js"></script>
+        <script defer src="assets/js/app.js"></script>
+        <script defer src="assets/js/swiper-helper.js"></script>
+        <script defer src="assets/js/typed-helper.js"></script>
+        <script defer src="assets/js/anime-helper.js"></script>
+        <script defer src="assets/js/anime-helper-defined-timelines.js"></script>
+        <script defer src="assets/js/web3.min.js"></script>
+        <script defer src="assets/js/walletconnect-web3-provider.min.js"></script>
+        <script defer src="assets/js/DoersNFT_ABI.js"></script>
+
+        <script>
+            document.documentElement.classList.remove("uk-dark");
+            localStorage.setItem("darkMode", "0");
+
+            const mintBtn = document.getElementById('mintBtn');
+
+            async function connectWallet() {
+                var provider;
+                if (typeof window.ethereum != 'undefined') {
+                    provider = window.ethereum;
+                } else {
+                    provider = new WalletConnectProvider.default({
+                    infuraId: "ac7107b098c14cea994690a1bb23fac8",
+                    });
+                }
+
+                const web3js = new Web3(provider);
+
+                await web3js.eth.accounts.currentProvider.enable();
+                web3js.eth.getAccounts((err, accounts) => { mintNFT(web3js, accounts[0]) });
+            }
+
+            async function mintNFT(web3js, account) {
+                const DoersNFTAddress = "0x18A6c0A93aAb6b1A312Ae8d364c20C3AEf1De318";
+                const DoersNFTContract = new web3js.eth.Contract(DoersNFT_ABI, DoersNFTAddress);
+
+                const gasEst = await DoersNFTContract.methods.mint(account).estimateGas({value: 1000000000000000000});
+
+                await DoersNFTContract.methods.mint(account).send({from: account, value: 1000000000000000000, gas: gasEst})
+                    .on('transactionHash', function(hash){
+                        alert("The Ethereum validators are taking a look at your transaction... Last few seconds before you join the Doers community!")
+                    })
+                    .on('confirmation', function(receipt){
+                        window.location.replace("https://forms.gle/GoUuU2QjLQp7gKLV8");
+                    })
+            }
+
+            window.addEventListener('load', function () {
+                mintBtn.addEventListener('click', connectWallet);
+            });
+
+        </script>
+    </body>
+</html>
